@@ -1,0 +1,13 @@
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\bin\Debug\DXApplication1.exe.config
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.exe
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.pdb
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\bin\Debug\DXApplication1.exe
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\bin\Debug\DXApplication1.pdb
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.frmActivity.resources
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.frmAddVssl.resources
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.ucAct.resources
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.ucBase.resources
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.frmMain.resources
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.Resources.resources
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\SemiVMS.vbproj.GenerateResource.Cache
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.exe.licenses
