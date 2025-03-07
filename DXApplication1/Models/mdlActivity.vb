@@ -18,7 +18,7 @@
 
         ' Populate the properties of the class
         For Each i In act
-            activityID = activityID
+            Me.ActivityID = activityID
             ActivityName = i.ActivityName
             ActivityDes = i.ActivityDes
 

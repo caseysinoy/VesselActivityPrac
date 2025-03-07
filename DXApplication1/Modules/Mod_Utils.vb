@@ -22,6 +22,26 @@ Module Mod_Utils
         End Try
     End Sub
 
+    Public Sub gvCount(ByRef gridview As GridView)
+        If gridview.RowCount > 0 Then
+            Dim col = gridview.Columns(1)
+            col.Summary.Add(DevExpress.Data.SummaryItemType.Count, col.FieldName, "Count:{0}")
+
+        End If
+    End Sub
+    Public Sub gvCount(ByRef gridview As GridView, ByVal colindex As Integer)
+        If gridview.RowCount > 0 Then
+            Dim col = gridview.Columns(colindex)
+            col.Summary.Add(DevExpress.Data.SummaryItemType.Count, col.FieldName, "Count:{0}")
+        End If
+    End Sub
+    Public Sub gvCount(ByRef gridview As GridView, ByVal fieldname As String)
+        If gridview.RowCount > 0 Then
+            Dim col = gridview.Columns(fieldname)
+            col.Summary.Add(DevExpress.Data.SummaryItemType.Count, col.FieldName, "Count:{0}")
+        End If
+    End Sub
+
     '================================== Validation Methods ==================================' 
     ' Function to validate a TextEdit control (with optional check for value greater than zero)
     Function validateField(ByRef control As TextEdit, Optional ByVal greaterThanZero As Boolean = False) As Boolean
@@ -80,6 +100,9 @@ Module Mod_Utils
     End Sub
     Function ConfirmVerifyMessage() As Boolean
         Return XtraMessageBox.Show("Verify and commit?", APPNAME, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes
+    End Function
+    Function SuccessfullyAddedUpdatedMessage() As System.Windows.Forms.DialogResult
+        Return XtraMessageBox.Show("Your record is successfully added or updated in the database.", APPNAME, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Function
     '================================== End MessageBox Methods ==================================' 
 

@@ -50,7 +50,17 @@ Partial Public Class frmMain
         Dim formAct As New ctlrVA()
     End Sub
 
-    Private Sub bbtn_vessel_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbtn_vessel.ItemClick
-        Dim formAct As New ctlrVssl()
+    Private Sub xtraTab_CloseButtonClick(sender As Object, e As EventArgs) Handles xtraTab.CloseButtonClick
+        Dim page As DevExpress.XtraTab.XtraTabPage = TryCast(xtraTab.SelectedTabPage, DevExpress.XtraTab.XtraTabPage)
+
+        If page IsNot Nothing Then
+            Dim ucToRemove = ucList.FirstOrDefault(Function(uc) uc.Parent Is page)
+
+            If ucToRemove IsNot Nothing Then
+                ucList.Remove(ucToRemove)
+            End If
+
+            xtraTab.TabPages.Remove(page)
+        End If
     End Sub
 End Class

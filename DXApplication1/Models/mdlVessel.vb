@@ -17,7 +17,7 @@
 
         ' Populate the properties of the class
         For Each i In vssl
-            vesselID = vesselID
+            Me.VesselID = vesselID
             VesselName = i.VesselName
 
         Next

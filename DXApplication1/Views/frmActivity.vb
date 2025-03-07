@@ -3,14 +3,14 @@ Public Class frmActivity
     Private ctrlACT As ctlrVA
     Public confirmClose As Boolean = True
 
-    Sub New(ByRef ctrl As ctlrVA)
+    Sub New(ByRef ctrlva As ctlrVA)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
 
-        ctrlACT = ctrl
+        ctrlACT = ctrlva
 
     End Sub
 
@@ -27,12 +27,12 @@ Public Class frmActivity
 
         If actDate AndAlso vsslName AndAlso vsslLoc AndAlso vsslAct AndAlso vsslLat AndAlso _
             vsslLong AndAlso vsslRep AndAlso vsslDesc Then
-            'ctrlACT.save()
-            If ctrlACT.save() Then
-                ConfirmVerifyMessage()
-                confirmClose = False
-                Me.Close()
-            End If
+            ctrlACT.Save()
+            'If ctrlACT.Save() Then
+            SuccessfullyAddedUpdatedMessage()
+            confirmClose = False
+            Me.Close()
+            'End If
         Else
             Dim builder As New StringBuilder
             If Not actDate Then builder.Append("Activity Date").AppendLine()

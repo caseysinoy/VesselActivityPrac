@@ -50,36 +50,36 @@ Partial Class frmActivity
         Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
-        CType(Me.RibbonControl,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControl1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.LayoutControl1.SuspendLayout
-        CType(Me.XtraTabControl1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.XtraTabControl1.SuspendLayout
-        Me.XtraTabPage1.SuspendLayout
-        CType(Me.LayoutControl2,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.LayoutControl2.SuspendLayout
-        CType(Me.deActDate.Properties.CalendarTimeProperties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.deActDate.Properties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.teRep.Properties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.cbLoc.Properties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.cbAct.Properties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.cbVessel.Properties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.seLati.Properties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.seLongi.Properties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.teDesc.Properties,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlGroup2,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem2,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.EmptySpaceItem1,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem5,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem6,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem7,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem4,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem8,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem9,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem10,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlGroup1,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.LayoutControlItem1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LayoutControl1.SuspendLayout()
+        CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XtraTabControl1.SuspendLayout()
+        Me.XtraTabPage1.SuspendLayout()
+        CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LayoutControl2.SuspendLayout()
+        CType(Me.deActDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.deActDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teRep.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbLoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbAct.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbVessel.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.seLati.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.seLongi.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teDesc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'RibbonControl
         '
@@ -102,7 +102,7 @@ Partial Class frmActivity
         'BarButtonItem2
         '
         Me.BarButtonItem2.Caption = "Remove"
-        Me.BarButtonItem2.Enabled = false
+        Me.BarButtonItem2.Enabled = False
         Me.BarButtonItem2.Id = 2
         Me.BarButtonItem2.ImageOptions.LargeImage = Global.DXApplication1.My.Resources.Resources.delete
         Me.BarButtonItem2.Name = "BarButtonItem2"
@@ -221,7 +221,7 @@ Partial Class frmActivity
         Me.cbAct.Name = "cbAct"
         Me.cbAct.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbAct.Properties.NullText = ""
-        Me.cbAct.Properties.PopupSizeable = false
+        Me.cbAct.Properties.PopupSizeable = False
         Me.cbAct.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.cbAct.Size = New System.Drawing.Size(591, 20)
         Me.cbAct.StyleController = Me.LayoutControl2
@@ -234,7 +234,7 @@ Partial Class frmActivity
         Me.cbVessel.Name = "cbVessel"
         Me.cbVessel.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbVessel.Properties.NullText = ""
-        Me.cbVessel.Properties.PopupSizeable = false
+        Me.cbVessel.Properties.PopupSizeable = False
         Me.cbVessel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.cbVessel.Size = New System.Drawing.Size(591, 20)
         Me.cbVessel.StyleController = Me.LayoutControl2
@@ -278,11 +278,11 @@ Partial Class frmActivity
         'LayoutControlGroup2
         '
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.LayoutControlGroup2.GroupBordersVisible = false
+        Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.EmptySpaceItem1, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem4, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10})
         Me.LayoutControlGroup2.Name = "Root"
         Me.LayoutControlGroup2.Size = New System.Drawing.Size(678, 296)
-        Me.LayoutControlGroup2.TextVisible = false
+        Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
         '
@@ -295,7 +295,7 @@ Partial Class frmActivity
         '
         'EmptySpaceItem1
         '
-        Me.EmptySpaceItem1.AllowHotTrack = false
+        Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 192)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(658, 84)
@@ -367,11 +367,11 @@ Partial Class frmActivity
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.LayoutControlGroup1.GroupBordersVisible = false
+        Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1})
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(709, 348)
-        Me.LayoutControlGroup1.TextVisible = false
+        Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
         '
@@ -380,11 +380,11 @@ Partial Class frmActivity
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
         Me.LayoutControlItem1.Size = New System.Drawing.Size(689, 328)
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem1.TextVisible = false
+        Me.LayoutControlItem1.TextVisible = False
         '
         'frmActivity
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(709, 515)
         Me.Controls.Add(Me.LayoutControl1)
@@ -396,20 +396,20 @@ Partial Class frmActivity
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.StatusBar = Me.RibbonStatusBar
         Me.Text = "Vessel Activity"
-        CType(Me.RibbonControl,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.LayoutControl1,System.ComponentModel.ISupportInitialize).EndInit
-        Me.LayoutControl1.ResumeLayout(false)
-        CType(Me.XtraTabControl1,System.ComponentModel.ISupportInitialize).EndInit
-        Me.XtraTabControl1.ResumeLayout(false)
-        Me.XtraTabPage1.ResumeLayout(false)
-        CType(Me.LayoutControl2,System.ComponentModel.ISupportInitialize).EndInit
-        Me.LayoutControl2.ResumeLayout(false)
-        CType(Me.deActDate.Properties.CalendarTimeProperties,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.deActDate.Properties,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.teRep.Properties,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.cbLoc.Properties,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.cbAct.Properties,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.cbVessel.Properties,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.XtraTabControl1.ResumeLayout(False)
+        Me.XtraTabPage1.ResumeLayout(False)
+        CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.LayoutControl2.ResumeLayout(False)
+        CType(Me.deActDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.deActDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teRep.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbLoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbAct.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbVessel.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.seLati.Properties,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.seLongi.Properties,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.teDesc.Properties,System.ComponentModel.ISupportInitialize).EndInit
@@ -457,10 +457,10 @@ End Sub
     Friend WithEvents deActDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents LayoutControlItem10 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents cbAct As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents cbVessel As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents seLati As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents seLongi As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents teDesc As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents cbVessel As DevExpress.XtraEditors.LookUpEdit
 
 
 End Class

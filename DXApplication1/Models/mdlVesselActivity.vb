@@ -13,6 +13,8 @@
     Public DateUpdated As Date
 
     Private dc As vmsdbDataContext
+    Private _act As tbl_vesselAct
+    Private _dc As vmsdbDataContext
 
     Sub New(ByRef dc_ As vmsdbDataContext)
         dc = dc_
@@ -41,6 +43,12 @@
         Next
     End Sub
 
+    Sub New(act As tbl_vesselAct, dc As vmsdbDataContext)
+        ' TODO: Complete member initialization 
+        _act = act
+        _dc = dc
+    End Sub
+
     Sub Add()
         Dim vact As New tbl_vesselAct
 
@@ -61,6 +69,21 @@
         dc.tbl_vesselActs.InsertOnSubmit(vact)
         dc.SubmitChanges()
         VactsID = vact.VactsID
+    End Sub
+
+    Sub Save()
+        Dim vsslAct = From i In dc.tbl_vesselActs Where i.VactsID = VactsID Select i
+
+        For Each i In vsslAct
+            i.VesselID = VesselID
+            i.ActivityID = ActivityID
+            i.Location = Location
+            i.Latitude = Latitude
+            i.Longitude = Longitude
+            i.Description = Description
+            i.DateAct = DateAct
+            dc.SubmitChanges()
+        Next
     End Sub
 
 End Class

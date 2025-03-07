@@ -3,7 +3,6 @@
 Public Class ucAct
     Inherits ucBase
 
-    ' Constructor
     Sub New(ByVal title As String)
         InitializeComponent()
 
@@ -11,11 +10,14 @@ Public Class ucAct
         LabelControl1.Text = title
         MyBase.indexField = "VactsID"
 
-        ' Disable footer in GridView
         GridView1.OptionsView.ShowFooter = False
+
+        dtFrom.EditValue = Nothing
+        dtTo.EditValue = Nothing
+
+        refreshData()
     End Sub
 
-    ' Override method to handle new record creation
     Public Overrides Sub newRecord()
         Dim crf As New ctlrVA
         refreshData()
@@ -27,37 +29,49 @@ Public Class ucAct
             ' Initialize data context
             Dim dc As New vmsdbDataContext
 
-            ' Fetch data from the database
-            Dim ds_db = (From i In dc.tbl_vesselActs
-                         Where i.DateAct >= CDate(dtFrom.EditValue).Date AndAlso
-                               i.DateAct < CDate(dtTo.EditValue).Date.AddDays(1)
-                         Select va_ID = i.VactsID,
-                                i.DateAct,
-                                i.VesselID,
-                                i.Location,
-                                i.ActivityID,
-                                i.Latitude,
-                                i.Longitude,
-                                i.Repair,
-                                i.Description).ToList()
+            ' Fetch data from tbl_vesselActs with optional date filtering
+            Dim query = From i In dc.tbl_vesselActs
+                        Join j In dc.tbl_vessels On i.VesselID Equals j.VesselID
+                        Join k In dc.tbl_activities On i.ActivityID Equals k.ActivityID
+                        Select New With {
+                            .VactsID = i.VactsID,
+                            .DateAct = i.DateAct,
+                            .VesselName = j.VesselName,
+                            .Location = i.Location,
+                            .ActivityName = k.ActivityName,
+                            .Latitude = i.Latitude,
+                            .Longitude = i.Longitude,
+                            .Repair = i.Repair,
+                            .Description = i.Description
+                        }
 
-            ' Join data with additional tables (tbl_vessels and tbl_activities)
-            Dim ds = (From i In ds_db
-                      Join j In dc.tbl_vessels On i.VesselID Equals j.VesselID
-                      Join k In dc.tbl_activities On i.ActivityID Equals k.ActivityID
-                      Select i).ToList()
+            ' Apply date filtering only if dtFrom and dtTo have values
+            If dtFrom.EditValue IsNot Nothing AndAlso dtTo.EditValue IsNot Nothing Then
+                query = query.Where(Function(i) i.DateAct >= CDate(dtFrom.EditValue).Date AndAlso
+                                              i.DateAct < CDate(dtTo.EditValue).Date.AddDays(1))
+            End If
 
+            ' Convert the query to a list
+            Dim ds_db = query.ToList()
 
+            ' Debug: Check if data is being fetched
 
-            ' Clear existing columns and bind data to the grid
-            GridView1.Columns.Clear()
-            GridControl1.DataSource = ds
+            ' Bind data to the grid
+            GridControl1.DataSource = ds_db
+            GridControl1.RefreshDataSource()
 
-            ' Apply grid transformation (assuming gridTransMode is a method to format the grid)
+            ' Apply grid transformation
             gridTransMode(GridView1)
+
+            ' Update grid count
+            gvCount(GridView1)
         Catch ex As Exception
-            ' Handle exceptions (e.g., log the error or show a message to the user)
-            MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Public Overrides Sub loadRecord(ByVal recordID As Integer)
+        Dim rec As New ctlrVA(recordID)
+        refreshData()
     End Sub
 End Class

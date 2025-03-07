@@ -8,7 +8,6 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-
         Dim dateNow = getServerDate()
         dtFrom.EditValue = dateNow.AddDays(-30)
         dtTo.EditValue = dateNow
@@ -25,7 +24,8 @@
     End Sub
 
     Private Sub btn_New_Click(sender As Object, e As EventArgs) Handles btn_New.Click
-        newRecord()
+        'newRecord()
+        refreshData()
     End Sub
 
     Private Sub GridControl1_Load(sender As Object, e As EventArgs) Handles GridControl1.Load

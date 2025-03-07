@@ -32,12 +32,12 @@
         Me.dd = New DevExpress.XtraBars.BarButtonItem()
         Me.ribbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.xtraTab = New DevExpress.XtraTab.XtraTabControl()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -101,14 +101,6 @@
         Me.ribbonPageGroup1.Name = "ribbonPageGroup1"
         Me.ribbonPageGroup1.Text = "Activity"
         '
-        'RibbonPageGroup2
-        '
-        Me.RibbonPageGroup2.AllowTextClipping = False
-        Me.RibbonPageGroup2.ItemLinks.Add(Me.bbtn_vessel)
-        Me.RibbonPageGroup2.ItemLinks.Add(Me.dd)
-        Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
-        Me.RibbonPageGroup2.Text = "Action"
-        '
         'DefaultLookAndFeel1
         '
         Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Caramel"
@@ -152,6 +144,11 @@
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
         '
+        'RibbonPageGroup2
+        '
+        Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
+        Me.RibbonPageGroup2.Text = "RibbonPageGroup2"
+        '
         'frmMain
         '
         Me.ClientSize = New System.Drawing.Size(677, 468)
@@ -180,11 +177,11 @@
     Friend WithEvents DefaultLookAndFeel1 As DevExpress.LookAndFeel.DefaultLookAndFeel
     Friend WithEvents bbtnCreateAct As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents bbtn_ActivityList As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents xtraTab As DevExpress.XtraTab.XtraTabControl
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents bbtn_vessel As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents dd As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class
