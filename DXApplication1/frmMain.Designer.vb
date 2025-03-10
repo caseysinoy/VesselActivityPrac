@@ -30,14 +30,18 @@
         Me.bbtn_ActivityList = New DevExpress.XtraBars.BarButtonItem()
         Me.bbtn_vessel = New DevExpress.XtraBars.BarButtonItem()
         Me.dd = New DevExpress.XtraBars.BarButtonItem()
+        Me.bbtn_reports = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
+        Me.bbtn_genReport = New DevExpress.XtraBars.BarButtonItem()
         Me.ribbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.xtraTab = New DevExpress.XtraTab.XtraTabControl()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -49,9 +53,9 @@
         'ribbonControl1
         '
         Me.ribbonControl1.ExpandCollapseItem.Id = 0
-        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.bbtnCreateAct, Me.bbtn_ActivityList, Me.bbtn_vessel, Me.dd})
+        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.bbtnCreateAct, Me.bbtn_ActivityList, Me.bbtn_vessel, Me.dd, Me.bbtn_reports, Me.BarButtonItem2, Me.BarButtonItem1, Me.bbtn_genReport})
         Me.ribbonControl1.Location = New System.Drawing.Point(0, 0)
-        Me.ribbonControl1.MaxItemId = 5
+        Me.ribbonControl1.MaxItemId = 9
         Me.ribbonControl1.Name = "ribbonControl1"
         Me.ribbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.ribbonPage1})
         Me.ribbonControl1.Size = New System.Drawing.Size(677, 142)
@@ -88,6 +92,32 @@
         Me.dd.Name = "dd"
         Me.dd.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText
         '
+        'bbtn_reports
+        '
+        Me.bbtn_reports.Caption = "Activty Reports"
+        Me.bbtn_reports.Id = 5
+        Me.bbtn_reports.ImageOptions.LargeImage = Global.DXApplication1.My.Resources.Resources.health_report
+        Me.bbtn_reports.Name = "bbtn_reports"
+        '
+        'BarButtonItem2
+        '
+        Me.BarButtonItem2.Caption = "BarButtonItem2"
+        Me.BarButtonItem2.Id = 6
+        Me.BarButtonItem2.Name = "BarButtonItem2"
+        '
+        'BarButtonItem1
+        '
+        Me.BarButtonItem1.Caption = "BarButtonItem1"
+        Me.BarButtonItem1.Id = 7
+        Me.BarButtonItem1.Name = "BarButtonItem1"
+        '
+        'bbtn_genReport
+        '
+        Me.bbtn_genReport.Caption = "Generate Report"
+        Me.bbtn_genReport.Id = 8
+        Me.bbtn_genReport.ImageOptions.LargeImage = Global.DXApplication1.My.Resources.Resources.bar_chart
+        Me.bbtn_genReport.Name = "bbtn_genReport"
+        '
         'ribbonPage1
         '
         Me.ribbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ribbonPageGroup1, Me.RibbonPageGroup2})
@@ -100,6 +130,15 @@
         Me.ribbonPageGroup1.ItemLinks.Add(Me.bbtn_ActivityList)
         Me.ribbonPageGroup1.Name = "ribbonPageGroup1"
         Me.ribbonPageGroup1.Text = "Activity"
+        '
+        'RibbonPageGroup2
+        '
+        Me.RibbonPageGroup2.AllowTextClipping = False
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.bbtn_reports)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.bbtn_genReport)
+        Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
+        Me.RibbonPageGroup2.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded
+        Me.RibbonPageGroup2.Text = "Reports"
         '
         'DefaultLookAndFeel1
         '
@@ -144,11 +183,6 @@
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
         '
-        'RibbonPageGroup2
-        '
-        Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
-        Me.RibbonPageGroup2.Text = "RibbonPageGroup2"
-        '
         'frmMain
         '
         Me.ClientSize = New System.Drawing.Size(677, 468)
@@ -184,4 +218,8 @@
     Friend WithEvents bbtn_vessel As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents dd As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents bbtn_reports As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents bbtn_genReport As DevExpress.XtraBars.BarButtonItem
 End Class

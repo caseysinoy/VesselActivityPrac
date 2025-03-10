@@ -39,6 +39,7 @@ Partial Class ucBase
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.Db_VMSDataSet1 = New DXApplication1.db_VMSDataSet()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -57,6 +58,7 @@ Partial Class ucBase
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Db_VMSDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -80,7 +82,7 @@ Partial Class ucBase
         'btn_New
         '
         Me.btn_New.ImageOptions.Image = Global.DXApplication1.My.Resources.Resources.refresh
-        Me.btn_New.Location = New System.Drawing.Point(494, 34)
+        Me.btn_New.Location = New System.Drawing.Point(494, 44)
         Me.btn_New.Name = "btn_New"
         Me.btn_New.Size = New System.Drawing.Size(72, 22)
         Me.btn_New.StyleController = Me.LayoutControl1
@@ -89,10 +91,11 @@ Partial Class ucBase
         '
         'GridControl1
         '
-        Me.GridControl1.Location = New System.Drawing.Point(12, 60)
+        Me.GridControl1.Location = New System.Drawing.Point(12, 70)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(554, 395)
+        Me.GridControl1.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.GridControl1.Size = New System.Drawing.Size(554, 385)
         Me.GridControl1.TabIndex = 8
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -104,7 +107,7 @@ Partial Class ucBase
         'btn_Filter
         '
         Me.btn_Filter.ImageOptions.Image = Global.DXApplication1.My.Resources.Resources.magnifier1
-        Me.btn_Filter.Location = New System.Drawing.Point(244, 34)
+        Me.btn_Filter.Location = New System.Drawing.Point(244, 44)
         Me.btn_Filter.Name = "btn_Filter"
         Me.btn_Filter.Size = New System.Drawing.Size(60, 22)
         Me.btn_Filter.StyleController = Me.LayoutControl1
@@ -125,7 +128,7 @@ Partial Class ucBase
         'dtFrom
         '
         Me.dtFrom.EditValue = Nothing
-        Me.dtFrom.Location = New System.Drawing.Point(69, 34)
+        Me.dtFrom.Location = New System.Drawing.Point(69, 44)
         Me.dtFrom.Name = "dtFrom"
         Me.dtFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dtFrom.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -140,7 +143,7 @@ Partial Class ucBase
         'dtTo
         '
         Me.dtTo.EditValue = Nothing
-        Me.dtTo.Location = New System.Drawing.Point(180, 34)
+        Me.dtTo.Location = New System.Drawing.Point(180, 44)
         Me.dtTo.Name = "dtTo"
         Me.dtTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dtTo.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -154,7 +157,7 @@ Partial Class ucBase
         '
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem2, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem2, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.EmptySpaceItem4})
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(578, 467)
         Me.LayoutControlGroup1.TextVisible = False
@@ -171,7 +174,7 @@ Partial Class ucBase
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.dtFrom
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 22)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 32)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
         Me.LayoutControlItem2.Size = New System.Drawing.Size(111, 26)
         Me.LayoutControlItem2.Text = "Date From:"
@@ -180,7 +183,7 @@ Partial Class ucBase
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.dtTo
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(111, 22)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(111, 32)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
         Me.LayoutControlItem3.Size = New System.Drawing.Size(111, 26)
         Me.LayoutControlItem3.Text = "To:"
@@ -189,7 +192,7 @@ Partial Class ucBase
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.btn_Filter
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(232, 22)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(232, 32)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
         Me.LayoutControlItem4.Size = New System.Drawing.Size(64, 26)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
@@ -198,7 +201,7 @@ Partial Class ucBase
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(296, 22)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(296, 32)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(186, 26)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -206,16 +209,16 @@ Partial Class ucBase
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.GridControl1
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 48)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 58)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(558, 399)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(558, 389)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.btn_New
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(482, 22)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(482, 32)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
         Me.LayoutControlItem6.Size = New System.Drawing.Size(76, 26)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
@@ -225,11 +228,21 @@ Partial Class ucBase
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(222, 22)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(222, 32)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(10, 26)
         Me.EmptySpaceItem1.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem4
+        '
+        Me.EmptySpaceItem4.AllowHotTrack = False
+        Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem3"
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 22)
+        Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(558, 10)
+        Me.EmptySpaceItem4.Text = "EmptySpaceItem3"
+        Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'Db_VMSDataSet1
         '
@@ -260,6 +273,7 @@ Partial Class ucBase
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Db_VMSDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -282,5 +296,6 @@ Partial Class ucBase
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents dtTo As DevExpress.XtraEditors.DateEdit
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
 
 End Class

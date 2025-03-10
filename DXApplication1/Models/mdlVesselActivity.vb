@@ -1,16 +1,9 @@
 ﻿Public Class mdlVesselActivity
     'Vessel Activity Info
-    Public VactsID As Integer
-    Public DateAct As Date
-    Public VesselID As Integer
-    Public Location As String
-    Public ActivityID As Integer
-    Public Latitude As Decimal
-    Public Longitude As Decimal
-    Public Repair As String
-    Public Description As String
-    Public DateCreated As Date
-    Public DateUpdated As Date
+    Public VactsID, VesselID, ActivityID As Integer
+    Public DateAct, DateCreated, DateUpdated As Date
+    Public Location, Repair, Description As String
+    Public Latitude, Longitude As Decimal?
 
     Private dc As vmsdbDataContext
     Private _act As tbl_vesselAct
@@ -44,9 +37,21 @@
     End Sub
 
     Sub New(act As tbl_vesselAct, dc As vmsdbDataContext)
-        ' TODO: Complete member initialization 
-        _act = act
         _dc = dc
+
+        Dim i = act
+
+        Me.VactsID = i.VactsID
+        VesselID = i.VesselID
+        ActivityID = i.ActivityID
+        Location = i.Location
+        Longitude = i.Longitude
+        Latitude = i.Latitude
+        Description = i.Description
+        DateAct = i.DateAct
+        Repair = i.Repair
+        DateCreated = i.DateCreated
+        DateUpdated = i.DateUpdated
     End Sub
 
     Sub Add()
@@ -82,9 +87,29 @@
             i.Longitude = Longitude
             i.Description = Description
             i.DateAct = DateAct
+            i.Repair = Repair
             dc.SubmitChanges()
         Next
     End Sub
 
+    Function GetRows() As List(Of mdlVesselActivity)
+        Dim vaList As New List(Of mdlVesselActivity)
+
+        Dim acts = From va In dc.tbl_vesselActs Select va
+
+        For Each act In acts
+            vaList.Add(New mdlVesselActivity(act, dc))
+        Next
+
+        Return vaList
+    End Function
+
+    Function GetVessel(ByVal vs As List(Of tbl_vessel)) As tbl_vessel
+        Return (From i In vs Where i.VesselID = VesselID Select i).FirstOrDefault()
+    End Function
+
+    Function GetActivity(ByVal vs As List(Of tbl_activity)) As tbl_activity
+        Return (From i In vs Where i.ActivityID = ActivityID Select i).FirstOrDefault()
+    End Function
 End Class
 

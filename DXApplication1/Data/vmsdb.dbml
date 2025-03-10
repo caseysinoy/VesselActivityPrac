@@ -9,6 +9,14 @@
       <Association Name="tbl_activity_tbl_vesselAct" Member="tbl_vesselActs" ThisKey="ActivityID" OtherKey="ActivityID" Type="tbl_vesselAct" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_vessels" Member="tbl_vessels">
+    <Type Name="tbl_vessel">
+      <Column Name="VesselID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VesselName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_vessel_tbl_vesselAct" Member="tbl_vesselActs" ThisKey="VesselID" OtherKey="VesselID" Type="tbl_vesselAct" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_vesselAct" Member="tbl_vesselActs">
     <Type Name="tbl_vesselAct">
       <Column Name="VactsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -19,19 +27,11 @@
       <Column Name="Longitude" Type="System.Decimal" DbType="Decimal(9,6)" CanBeNull="true" />
       <Column Name="Repair" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="DateCreated" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DateUpdated" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" AutoSync="Never" Type="System.DateTime" DbType="Date NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateUpdated" AutoSync="Never" Type="System.DateTime" DbType="Date NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DateAct" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="tbl_activity_tbl_vesselAct" Member="tbl_activity" ThisKey="ActivityID" OtherKey="ActivityID" Type="tbl_activity" IsForeignKey="true" />
       <Association Name="tbl_vessel_tbl_vesselAct" Member="tbl_vessel" ThisKey="VesselID" OtherKey="VesselID" Type="tbl_vessel" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_vessels" Member="tbl_vessels">
-    <Type Name="tbl_vessel">
-      <Column Name="VesselID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="VesselName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DateCreated" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="tbl_vessel_tbl_vesselAct" Member="tbl_vesselActs" ThisKey="VesselID" OtherKey="VesselID" Type="tbl_vesselAct" />
     </Type>
   </Table>
 </Database>

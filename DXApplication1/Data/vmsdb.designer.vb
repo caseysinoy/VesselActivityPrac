@@ -37,17 +37,17 @@ Partial Public Class vmsdbDataContext
     End Sub
   Partial Private Sub Deletetbl_activity(instance As tbl_activity)
     End Sub
-  Partial Private Sub Inserttbl_vesselAct(instance As tbl_vesselAct)
-    End Sub
-  Partial Private Sub Updatetbl_vesselAct(instance As tbl_vesselAct)
-    End Sub
-  Partial Private Sub Deletetbl_vesselAct(instance As tbl_vesselAct)
-    End Sub
   Partial Private Sub Inserttbl_vessel(instance As tbl_vessel)
     End Sub
   Partial Private Sub Updatetbl_vessel(instance As tbl_vessel)
     End Sub
   Partial Private Sub Deletetbl_vessel(instance As tbl_vessel)
+    End Sub
+  Partial Private Sub Inserttbl_vesselAct(instance As tbl_vesselAct)
+    End Sub
+  Partial Private Sub Updatetbl_vesselAct(instance As tbl_vesselAct)
+    End Sub
+  Partial Private Sub Deletetbl_vesselAct(instance As tbl_vesselAct)
     End Sub
   #End Region
 	
@@ -82,15 +82,15 @@ Partial Public Class vmsdbDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property tbl_vesselActs() As System.Data.Linq.Table(Of tbl_vesselAct)
-		Get
-			Return Me.GetTable(Of tbl_vesselAct)
-		End Get
-	End Property
-	
 	Public ReadOnly Property tbl_vessels() As System.Data.Linq.Table(Of tbl_vessel)
 		Get
 			Return Me.GetTable(Of tbl_vessel)
+		End Get
+	End Property
+	
+	Public ReadOnly Property tbl_vesselActs() As System.Data.Linq.Table(Of tbl_vesselAct)
+		Get
+			Return Me.GetTable(Of tbl_vesselAct)
 		End Get
 	End Property
 End Class
@@ -244,6 +244,136 @@ Partial Public Class tbl_activity
 	Private Sub detach_tbl_vesselActs(ByVal entity As tbl_vesselAct)
 		Me.SendPropertyChanging
 		entity.tbl_activity = Nothing
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tbl_vessels")>  _
+Partial Public Class tbl_vessel
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _VesselID As Integer
+	
+	Private _VesselName As String
+	
+	Private _DateCreated As Date
+	
+	Private _tbl_vesselActs As EntitySet(Of tbl_vesselAct)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnVesselIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnVesselIDChanged()
+    End Sub
+    Partial Private Sub OnVesselNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnVesselNameChanged()
+    End Sub
+    Partial Private Sub OnDateCreatedChanging(value As Date)
+    End Sub
+    Partial Private Sub OnDateCreatedChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._tbl_vesselActs = New EntitySet(Of tbl_vesselAct)(AddressOf Me.attach_tbl_vesselActs, AddressOf Me.detach_tbl_vesselActs)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_VesselID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property VesselID() As Integer
+		Get
+			Return Me._VesselID
+		End Get
+		Set
+			If ((Me._VesselID = value)  _
+						= false) Then
+				Me.OnVesselIDChanging(value)
+				Me.SendPropertyChanging
+				Me._VesselID = value
+				Me.SendPropertyChanged("VesselID")
+				Me.OnVesselIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_VesselName", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property VesselName() As String
+		Get
+			Return Me._VesselName
+		End Get
+		Set
+			If (String.Equals(Me._VesselName, value) = false) Then
+				Me.OnVesselNameChanging(value)
+				Me.SendPropertyChanging
+				Me._VesselName = value
+				Me.SendPropertyChanged("VesselName")
+				Me.OnVesselNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DateCreated", DbType:="Date NOT NULL")>  _
+	Public Property DateCreated() As Date
+		Get
+			Return Me._DateCreated
+		End Get
+		Set
+			If ((Me._DateCreated = value)  _
+						= false) Then
+				Me.OnDateCreatedChanging(value)
+				Me.SendPropertyChanging
+				Me._DateCreated = value
+				Me.SendPropertyChanged("DateCreated")
+				Me.OnDateCreatedChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="tbl_vessel_tbl_vesselAct", Storage:="_tbl_vesselActs", ThisKey:="VesselID", OtherKey:="VesselID")>  _
+	Public Property tbl_vesselActs() As EntitySet(Of tbl_vesselAct)
+		Get
+			Return Me._tbl_vesselActs
+		End Get
+		Set
+			Me._tbl_vesselActs.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_tbl_vesselActs(ByVal entity As tbl_vesselAct)
+		Me.SendPropertyChanging
+		entity.tbl_vessel = Me
+	End Sub
+	
+	Private Sub detach_tbl_vesselActs(ByVal entity As tbl_vesselAct)
+		Me.SendPropertyChanging
+		entity.tbl_vessel = Nothing
 	End Sub
 End Class
 
@@ -476,7 +606,7 @@ Partial Public Class tbl_vesselAct
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DateCreated", DbType:="Date NOT NULL")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DateCreated", DbType:="Date NOT NULL", IsDbGenerated:=true)>  _
 	Public Property DateCreated() As Date
 		Get
 			Return Me._DateCreated
@@ -493,7 +623,7 @@ Partial Public Class tbl_vesselAct
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DateUpdated", DbType:="Date NOT NULL")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DateUpdated", DbType:="Date NOT NULL", IsDbGenerated:=true)>  _
 	Public Property DateUpdated() As Date
 		Get
 			Return Me._DateUpdated
@@ -599,135 +729,5 @@ Partial Public Class tbl_vesselAct
 					= false) Then
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tbl_vessels")>  _
-Partial Public Class tbl_vessel
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _VesselID As Integer
-	
-	Private _VesselName As String
-	
-	Private _DateCreated As Date
-	
-	Private _tbl_vesselActs As EntitySet(Of tbl_vesselAct)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnVesselIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnVesselIDChanged()
-    End Sub
-    Partial Private Sub OnVesselNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnVesselNameChanged()
-    End Sub
-    Partial Private Sub OnDateCreatedChanging(value As Date)
-    End Sub
-    Partial Private Sub OnDateCreatedChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._tbl_vesselActs = New EntitySet(Of tbl_vesselAct)(AddressOf Me.attach_tbl_vesselActs, AddressOf Me.detach_tbl_vesselActs)
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_VesselID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property VesselID() As Integer
-		Get
-			Return Me._VesselID
-		End Get
-		Set
-			If ((Me._VesselID = value)  _
-						= false) Then
-				Me.OnVesselIDChanging(value)
-				Me.SendPropertyChanging
-				Me._VesselID = value
-				Me.SendPropertyChanged("VesselID")
-				Me.OnVesselIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_VesselName", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
-	Public Property VesselName() As String
-		Get
-			Return Me._VesselName
-		End Get
-		Set
-			If (String.Equals(Me._VesselName, value) = false) Then
-				Me.OnVesselNameChanging(value)
-				Me.SendPropertyChanging
-				Me._VesselName = value
-				Me.SendPropertyChanged("VesselName")
-				Me.OnVesselNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DateCreated", DbType:="Date NOT NULL")>  _
-	Public Property DateCreated() As Date
-		Get
-			Return Me._DateCreated
-		End Get
-		Set
-			If ((Me._DateCreated = value)  _
-						= false) Then
-				Me.OnDateCreatedChanging(value)
-				Me.SendPropertyChanging
-				Me._DateCreated = value
-				Me.SendPropertyChanged("DateCreated")
-				Me.OnDateCreatedChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="tbl_vessel_tbl_vesselAct", Storage:="_tbl_vesselActs", ThisKey:="VesselID", OtherKey:="VesselID")>  _
-	Public Property tbl_vesselActs() As EntitySet(Of tbl_vesselAct)
-		Get
-			Return Me._tbl_vesselActs
-		End Get
-		Set
-			Me._tbl_vesselActs.Assign(value)
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub attach_tbl_vesselActs(ByVal entity As tbl_vesselAct)
-		Me.SendPropertyChanging
-		entity.tbl_vessel = Me
-	End Sub
-	
-	Private Sub detach_tbl_vesselActs(ByVal entity As tbl_vesselAct)
-		Me.SendPropertyChanging
-		entity.tbl_vessel = Nothing
 	End Sub
 End Class

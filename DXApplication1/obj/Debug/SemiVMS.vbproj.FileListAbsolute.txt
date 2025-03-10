@@ -10,3 +10,5 @@ C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.frmMa
 C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.Resources.resources
 C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\SemiVMS.vbproj.GenerateResource.Cache
 C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.exe.licenses
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.frmReport.resources
+C:\laragon\www\tsp-project\semiVMS\DXApplication1\obj\Debug\DXApplication1.ucRep.resources

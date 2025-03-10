@@ -45,6 +45,7 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.1" />
     <Reference Include="DevExpress.Data.v18.1" />
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v18.1.Core" />
     <Reference Include="DevExpress.Utils.v18.1" />
     <Reference Include="DevExpress.XtraBars.v18.1" />
@@ -52,6 +53,7 @@
     <Reference Include="DevExpress.XtraEditors.v18.1" />
     <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -81,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ctlrVA.vb" />
+    <Compile Include="Controllers\ctrlReports.vb" />
     <Compile Include="Data\vmsdb.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,6 +118,12 @@
     <Compile Include="Views\frmActivity.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\frmReport.Designer.vb">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\ucAct.Designer.vb">
       <DependentUpon>ucAct.vb</DependentUpon>
     </Compile>
@@ -127,6 +136,18 @@
     <Compile Include="Views\ucBase.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\ucRep.Designer.vb">
+      <DependentUpon>ucRep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucRep.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="Views\frmReport.resx">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucRep.resx">
+      <DependentUpon>ucRep.vb</DependentUpon>
+    </EmbeddedResource>
     <None Include="Data\vmsdb.dbml.layout">
       <DependentUpon>vmsdb.dbml</DependentUpon>
     </None>
@@ -192,13 +213,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\add-file.png" />
+    <None Include="Resources\analysis.png" />
+    <None Include="Resources\bar-chart.png" />
     <Content Include="Resources\check.png" />
     <Content Include="Resources\daily-task.png" />
     <Content Include="Resources\delete.png" />
     <Content Include="Resources\fishing-boat.png" />
+    <None Include="Resources\health-report.png" />
     <Content Include="Resources\magnifier.png" />
     <None Include="Resources\refresh.png" />
+    <None Include="Resources\printer.png" />
     <Content Include="Resources\removed.png" />
+    <None Include="Resources\report.png" />
     <Content Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup />

@@ -11,6 +11,7 @@ Module Mod_Utils
 
     ' Subroutine to configure a GridView for read-only display
     Public Sub gridTransMode(ByRef grid As GridView)
+
         Try
             grid.BestFitColumns() ' Auto-size columns to fit content
             grid.OptionsBehavior.Editable = False ' Make the grid non-editable
@@ -26,7 +27,6 @@ Module Mod_Utils
         If gridview.RowCount > 0 Then
             Dim col = gridview.Columns(1)
             col.Summary.Add(DevExpress.Data.SummaryItemType.Count, col.FieldName, "Count:{0}")
-
         End If
     End Sub
     Public Sub gvCount(ByRef gridview As GridView, ByVal colindex As Integer)
@@ -98,11 +98,8 @@ Module Mod_Utils
     Sub ErrorMessage(ByVal msg As String)
         XtraMessageBox.Show(msg, APPNAME, MessageBoxButtons.OK, MessageBoxIcon.Error)
     End Sub
-    Function ConfirmVerifyMessage() As Boolean
-        Return XtraMessageBox.Show("Verify and commit?", APPNAME, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes
-    End Function
     Function SuccessfullyAddedUpdatedMessage() As System.Windows.Forms.DialogResult
-        Return XtraMessageBox.Show("Your record is successfully added or updated in the database.", APPNAME, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Return XtraMessageBox.Show("Your record is successfully added or updated in the database. Please refresh the page", APPNAME, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Function
     '================================== End MessageBox Methods ==================================' 
 

@@ -15,12 +15,6 @@ Public Class ucAct
         dtFrom.EditValue = Nothing
         dtTo.EditValue = Nothing
 
-        refreshData()
-    End Sub
-
-    Public Overrides Sub newRecord()
-        Dim crf As New ctlrVA
-        refreshData()
     End Sub
 
     ' Override method to refresh data in the grid
@@ -47,31 +41,33 @@ Public Class ucAct
 
             ' Apply date filtering only if dtFrom and dtTo have values
             If dtFrom.EditValue IsNot Nothing AndAlso dtTo.EditValue IsNot Nothing Then
-                query = query.Where(Function(i) i.DateAct >= CDate(dtFrom.EditValue).Date AndAlso
-                                              i.DateAct < CDate(dtTo.EditValue).Date.AddDays(1))
+                Dim fromDate As Date = CDate(dtFrom.EditValue).Date
+                Dim toDate As Date = CDate(dtTo.EditValue).Date.AddDays(1)
+                query = query.Where(Function(i) i.DateAct >= fromDate AndAlso i.DateAct < toDate)
             End If
 
             ' Convert the query to a list
             Dim ds_db = query.ToList()
 
-            ' Debug: Check if data is being fetched
-
             ' Bind data to the grid
             GridControl1.DataSource = ds_db
-            GridControl1.RefreshDataSource()
 
             ' Apply grid transformation
             gridTransMode(GridView1)
 
+            ' Hide VactsID column if it exists
+            If GridView1.Columns("VactsID") IsNot Nothing Then
+                GridView1.Columns("VactsID").Visible = False
+            End If
+
             ' Update grid count
             gvCount(GridView1)
         Catch ex As Exception
-            MessageBox.Show("An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Public Overrides Sub loadRecord(ByVal recordID As Integer)
         Dim rec As New ctlrVA(recordID)
-        refreshData()
     End Sub
 End Class

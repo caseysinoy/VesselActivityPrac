@@ -10,12 +10,12 @@ Partial Public Class frmMain
     End Sub
 
     Sub New()
-        ' This call is required by the designer.
+
         InitializeComponent()
-        ' Add any initialization after the InitializeComponent() call.
+
     End Sub
 
-    Private Sub addTab(ByVal uc As ucBase)
+    Private Sub addTab(ByVal uc As ucBase, ByVal title As String)
         ucList.Add(uc)
         xtraTab.TabPages.Add(uc.title)
         uc.Parent = xtraTab.TabPages(xtraTab.TabPages.Count - 1)
@@ -23,15 +23,13 @@ Partial Public Class frmMain
         xtraTab.TabPages(ucList.IndexOf(uc)).Show()
     End Sub
 
-    Private Function inTabs(ByVal title As String) As Integer
-        If ucList.Count = 0 Then
+    Private Function InTabs(title As String) As Integer
+
+        If ucList.Count = 0 OrElse Not ucList.Any(Function(x) x.title = title) Then
             Return -1
         End If
-        Dim thisTab = ucList.Where(Function(x) x.title = title)
-        If thisTab.Count = 0 Then
-            Return -1
-        End If
-        Return ucList.IndexOf(thisTab.First)
+
+        Return ucList.FindIndex(Function(x) x.title = title)
     End Function
 
     Private Sub bbtn_ActivityList_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbtn_ActivityList.ItemClick
@@ -39,7 +37,7 @@ Partial Public Class frmMain
         Dim intab = inTabs(title)
         If intab = -1 Then
             Dim uc As New ucAct(title)
-            addTab(uc)
+            addTab(uc, title)
         Else
             xtraTab.TabPages(intab).Show()
         End If
@@ -62,5 +60,21 @@ Partial Public Class frmMain
 
             xtraTab.TabPages.Remove(page)
         End If
+    End Sub
+
+    Private Sub bbtn_reports_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbtn_reports.ItemClick
+        Dim title = "Activity Reports"
+        Dim intab = inTabs(title)
+        If intab = -1 Then
+            Dim uc As New ucRep(title)
+            addTab(uc, title)
+        Else
+            xtraTab.TabPages(intab).Show()
+        End If
+    End Sub
+
+
+    Private Sub bbtn_genReport_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbtn_genReport.ItemClick
+        Dim ctrl As New ctrlReports()
     End Sub
 End Class
